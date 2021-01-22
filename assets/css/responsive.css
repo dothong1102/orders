@@ -1,0 +1,116 @@
+  /* > PC low resolution */
+  
+  @media (min-width: 1024px) and (max-width: 1200px) {
+      .main {
+          width: 100%;
+      }
+      .table {
+          margin: auto 1rem;
+      }
+      .table td {
+          padding: 1.5rem 0;
+      }
+      .table thead tr th:nth-child(8) {
+          display: none;
+      }
+      .table tbody tr td:nth-child(8) {
+          display: none;
+      }
+  }
+  /* Mobile & Tablet */
+  
+  @media (max-width: 1023px) {
+      .main {
+          width: 100%;
+      }
+      .table {
+          margin: auto 1rem;
+      }
+      .table td {
+          padding: 1.5rem 0;
+      }
+      .table th {
+          padding: 1rem 0.5rem;
+      }
+  }
+  /* Tablet */
+  
+  @media (min-width: 740px) and (max-width: 1023px) {
+      .table thead tr th:nth-child(8) {
+          display: none;
+      }
+      .table tbody tr td:nth-child(8) {
+          display: none;
+      }
+      .table thead tr th:nth-child(4) {
+          display: none;
+      }
+      .table tbody tr td:nth-child(4) {
+          display: none;
+      }
+  }
+  /* Mobile */
+  
+  @media (max-width: 740px) {
+      .hidden-row {
+          display: block
+      }
+      .table thead tr {
+          display: none;
+      }
+      .table tbody tr {
+          font-size: 1.4rem;
+          border-radius: 5px;
+          height: 100%;
+          border: 1px solid #cccccc;
+          border-bottom-width: 2px;
+          transition: background-color 0.35s ease-in-out;
+          /* max-height: 800px; */
+          overflow: hidden;
+          display: block;
+          background-color: #eeeeee;
+          margin-bottom: 20px;
+          padding: 4px 8px;
+          box-shadow: 0 0 5px #aaaaaa;
+      }
+      .table tbody tr td {
+          border-right: none;
+          line-height: 1.8rem;
+          border-bottom: 1px solid #cccccc;
+          display: flex;
+          justify-content: space-between;
+          text-align: right;
+          width: 100%;
+          padding: 8px;
+      }
+      .table tbody tr td:last-child {
+          border-bottom: none;
+      }
+      .btn-submit,
+      .btn-search,
+      .btn-update {
+          padding: 1.5rem;
+      }
+      .form-action {
+          width: 100%;
+      }
+  }
+  
+  @media (max-width: 560px) {
+      .form-input {
+          flex-direction: column;
+      }
+      .column-input {
+          width: 100%;
+      }
+      .search-container {
+          width: 70%;
+      }
+      .icon-reset {
+          right: 72%;
+      }
+  }
+  
+  @media (max-width: 415px) {}
+  
+  @media (max-width: 375px) {}

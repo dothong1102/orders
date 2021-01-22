@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đơn hàng</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <script src="assets/js/FileSaver.min.js"></script>
+    <script src="assets/js/xlsx.full.min.js"></script>
+</head>
+
+<!-- <body onload="renderDataTable()"> -->
+
+<body>
+    <div class="main">
+        <div class="form-action">
+            <div class="tab">
+                <i class="fas fa-window-minimize icon-minimize"></i>
+                <div class="tab-list">
+                    <div class="tab-item active" data-tab="1">Đơn hàng</div>
+                    <div class="tab-item" data-tab="2">Khách hàng</div>
+                    <div class="tab-item" data-tab="3">Sản phẩm</div>
+                </div>
+
+                <div class="tab-wrapper">
+                    <div class="tab-content active" data-tab="1">
+                        <h3 class="heading">Đơn hàng</h3>
+                        <div class="form-order form" nameStorage="orders" id="form-order">
+                            <div class="form-input">
+                                <div class="column-input">
+                                    <div class="form-group" id="lightdropdown">
+                                        <label for="fullName" class="form-label">Tên đầy đủ</label>
+
+                                        <input id="fullName" rules="required" autocomplete="off" name="fullName" type="text" class="form-control dropdown-select" />
+                                        <ul class="dropdown-list" data-name="fullName"></ul>
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Điện thoại</label>
+                                        <input id="phone" name="phone" autocomplete="off" rules="required|phone" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address" class="form-label">Địa chỉ</label>
+                                        <input id="address" name="address" autocomplete="off" rules="required" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dateCreated" class="form-label">Ngày tạo</label>
+                                        <input id="dateCreated" name="dateCreated" autocomplete="off" type="date" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                </div>
+                                <div class="column-input">
+                                    <div class="form-group" id="lightdropdown">
+                                        <label for="product" class="form-label">Sản phẩm</label>
+                                        <select name="product" id="product" rules="required" class="form-control"></select>
+                                        <!-- <ul class="dropdown-list" data-name="product"></ul> -->
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount" class="form-label">Số lượng</label>
+                                        <input id="amount" name="amount" autocomplete="off" value="1" min="1" rules="required" type="number" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="discount" class="form-label">Chiết khấu (%)</label>
+                                        <input id="discount" name="discount" autocomplete="off" value="0" rules="required" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="total" class="form-label">Tổng tiền</label>
+                                        <input id="total" name="total" disabled value="0" autocomplete="off" rules="required|money" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="btn-submit btn-order">Thêm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" data-tab="2">
+                        <h3 class="heading">Khách Hàng</h3>
+                        <div class="form-customer form" nameStorage="customers" id="form-customer">
+                            <div class="form-input">
+                                <div class="column-input">
+                                    <div class="form-group">
+                                        <label for="customer_fullName" class="form-label">Tên đầy đủ</label>
+                                        <input id="customer_fullName" rules="required" autocomplete="off" name="customer_fullName" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="customer_phone" class="form-label">Điện thoại</label>
+                                        <input id="customer_phone" rules="required|phone" autocomplete="off" name="customer_phone" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="customer_address" class="form-label">Địa chỉ</label>
+                                        <input id="customer_address" rules="required" autocomplete="off" name="customer_address" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn-submit btn-customer">Thêm mới</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" data-tab="3">
+                        <h3 class="heading">Sản phẩm</h3>
+                        <div class="form-product form" nameStorage="products" id="form-product">
+                            <div class="form-input">
+                                <div class="column-input">
+                                    <div class="form-group">
+                                        <label for="product_name" class="form-label">Sản phẩm</label>
+                                        <input id="product_name" rules="required" autocomplete="off" name="product_name" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product_price" class="form-label">Giá</label>
+                                        <input id="product_price" rules="required|money" autocomplete="off" name="product_price" type="text" class="form-control" />
+                                        <span class="form-message"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button class="btn-submit btn-product">Thêm mới</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="spacer"></div> -->
+        <div class="handle-form">
+            <div class="btn-handle">
+                <button id="excel-btn" class="btn-export btn">Excel</button>
+            </div>
+            <i class="far fa-window-maximize icon-maximize" id="icon-maximize"></i>
+            <i class=" fas fa-sync-alt icon-reset" id="icon-reset"></i>
+            <div class="search-container">
+
+                <div class="search-input">
+                    <select name="search-list" class="search-list" id="search-list">
+                        <option value="">Tất cả</option>
+                    </select>
+                    <div class="search-form">
+                        <input type="text" class="search-input" placeholder="Tìm kiếm" />
+                        <button class="search-button">Tìm</button>
+                    </div>
+
+                </div>
+                <div class="date-input">
+                    <input type="date" name="dateFrom" id="dateFrom" class="form-control">
+                    <input type="date" name="dateTo" id="dateTo" class="form-control">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="table">
+            <table id="tblListInfo">
+
+            </table>
+        </div>
+        <div class="spacer"></div>
+    </div>
+    <script src="assets/js/validator.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        Validator('#form-order');
+        Validator('#form-customer');
+        Validator('#form-product');
+    </script>
+    <script src="assets/js/suggest-dropdown.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/excel.js"></script>
+    <script src="assets/js/minimize-tab.js"></script>
+
+</body>
+
+</html>

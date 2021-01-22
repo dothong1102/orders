@@ -1,0 +1,482 @@
+.form-action {
+    width: 720px;
+    margin: 10px auto;
+    background-color: #f1f1f1;
+}
+
+
+/* Tab action */
+
+.tab {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    transition: all .5s linear;
+}
+
+@keyframes hiddenTab {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(200%);
+    }
+}
+
+.tab-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.tab-item {
+    cursor: pointer;
+    padding: 1.2rem 2rem;
+    border-radius: 5rem;
+    color: #818e9b;
+    background-color: #f4f5f7;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 1.2rem;
+    border: 1px solid #818e9b;
+}
+
+.tab-item.active {
+    color: white;
+    background-color: #455af7;
+    pointer-events: none;
+}
+
+.tab-item:not(:first-child) {
+    margin-left: 1.5rem;
+}
+
+.tab-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: .5rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/* Form order */
+
+.form-order,
+.form-customer,
+.form-product,
+.form-search {
+    text-align: center;
+    background: #fff;
+    border-radius: 3px;
+    margin: 20px;
+    align-self: center;
+    position: relative;
+}
+
+.heading {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.form-input {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-search-min {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+}
+
+.column-input {
+    width: 40%;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+    position: relative;
+}
+
+.row-product {
+    display: flex;
+}
+
+.row-product #product {
+    width: 70%
+}
+
+.row-product #amount {
+    width: 25%;
+}
+
+.icon-x {
+    font-size: 1.6rem;
+    margin: auto 6px;
+    width: 5%;
+}
+
+.form-label,
+.form-message {
+    text-align: left;
+}
+
+.form-label {
+    font-weight: 400;
+    padding-bottom: 6px;
+    line-height: 1.8rem;
+    font-size: 1.4rem;
+}
+
+.form-control {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+    /* width: 140%; */
+}
+
+.form-control option {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+}
+
+.form-control:hover {
+    border-color: #1dbfaf;
+}
+
+.form-group.invalid .form-control {
+    border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
+
+.btn-submit,
+.btn-search,
+.btn-update {
+    outline: none;
+    background-color: #455af7;
+    margin-top: 12px;
+    color: #fff;
+    border: none;
+    height: 45px;
+    width: 30%;
+    cursor: pointer;
+    padding: 1.2rem 2rem;
+    border-radius: 5rem;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 1.4rem;
+}
+
+.btn-submit:hover,
+.btn-search:hover,
+.btn-update:hover {
+    background-color: #243df8;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.spacer {
+    height: 10px;
+}
+
+
+/* Dropdown list */
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: none;
+    text-align: left;
+    list-style: none;
+    z-index: 1;
+}
+
+.dropdown-list:before {
+    content: "";
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    transform: translateY(-100%);
+}
+
+.dropdown-list.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 1.5rem;
+    color: #47536b;
+    transition: all 0.25s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.dropdown-item:hover {
+    color: #08aeea;
+    background-color: #f1fbff;
+}
+
+
+/* Table */
+
+.table {
+    transition: all .5s linear;
+    max-width: 100%;
+    margin: auto 10px;
+}
+
+.table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    color: #000;
+    background-color: white;
+}
+
+.table tr {
+    border-bottom: 1px solid #e6e9ec;
+    cursor: pointer;
+}
+
+.table th {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 400;
+    padding: 1rem;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #909090;
+}
+
+.table td {
+    vertical-align: middle;
+    padding: 1.5rem 1rem;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: normal;
+    text-align: center;
+    width: auto;
+}
+
+.table td:hover,
+.table td a:hover {
+    color: blue;
+}
+
+
+/* Search form in form input */
+
+.handle-form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    transition: all .5s linear;
+    position: relative;
+    margin: 30px 10px 0 10px;
+}
+
+.search-container {
+    width: 400px;
+    position: relative;
+}
+
+.search-input {
+    z-index: 0;
+    display: flex;
+    align-items: center;
+}
+
+.date-input {
+    display: none;
+    width: 100%;
+    transform: translate(200%, -225%);
+    animation: moveDate linear .5s;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.date-input input {
+    width: 49%;
+}
+
+@keyframes hiddenDate {
+    from {
+        opacity: 1;
+        transform: translate(0%, -225%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(200%, -225%);
+    }
+}
+
+@keyframes moveDate {
+    from {
+        opacity: 0;
+        transform: translate(200%, -250%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0%, -250%);
+    }
+}
+
+.search-list {
+    width: 30%;
+    outline: none;
+    padding: 6px 8px;
+    border: 1px solid #818e9b;
+    border-radius: 4px;
+    transition: all 0.2s linear;
+    line-height: 2rem;
+}
+
+.search-form {
+    width: 65%;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    right: 2%;
+}
+
+.search-input {
+    width: 100%;
+    outline: none;
+    padding: 6px 8px;
+    border: 1px solid #818e9b;
+    border-radius: 4px;
+    transition: all 0.2s linear;
+    line-height: 2rem;
+}
+
+.search-input:focus,
+.search-list:hover {
+    border-color: #bd93f9;
+}
+
+.search-input:focus+.search-button {
+    background-color: #455af7;
+}
+
+.search-button {
+    padding: 4px 16px;
+    background-color: rgb(153, 153, 153);
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: all 0.2s linear;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+.search-input:focus+.search-button:hover {
+    background-color: #243df8;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.search-button:hover {
+    background-color: #243df8;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+
+/* Button Export, Import */
+
+.btn {
+    padding: 8px 16px;
+    background-color: #999;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-weight: 400;
+    border-radius: 4px;
+    transition: all 0.1s linear;
+    /* transform: translateY(-50%); */
+    top: 50%;
+}
+
+.btn:hover {
+    background-color: #455af7;
+}
+
+.btn:active {
+    background-color: #243df8;
+}
+
+.icon-reset {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    color: #000;
+    right: 420px;
+}
+
+.icon-minimize {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    text-align: right;
+    right: 2rem;
+    top: 0;
+}
+
+.icon-maximize {
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    color: #000;
+    right: 0;
+    top: -2.5rem;
+    display: none;
+    transition: all 0.5s linear;
+}
+
+.hidden-row {
+    display: none;
+}
